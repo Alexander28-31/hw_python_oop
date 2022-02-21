@@ -13,9 +13,7 @@ class InfoMessage:
         self.calories = calories
 
     def get_message(self):
-
         """Информационное сообщение о тренировке."""
-
         return(f'Тип тренировки: {self.training_type}; '
                f'Длительность: {self.duration:.3f} ч.; '
                f'Дистанция: {self.distance:.3f} км; '
@@ -24,7 +22,6 @@ class InfoMessage:
 
 
 class Training:
-
     """Базовый класс тренировки."""
 
     LEN_STEP: float = 0.65
@@ -42,29 +39,21 @@ class Training:
         self.weight = weight
 
     def get_distance(self) -> float:
-
         """Получить дистанцию в км."""
-
         distance = self.action * self.LEN_STEP / self.M_IN_KM
         return distance
 
     def get_mean_speed(self) -> float:
-
         """Получить среднюю скорость движения."""
-
         speed = self.get_distance() / self.duration
         return speed
 
     def get_spent_calories(self) -> float:
-
         """Получить количество затраченных калорий."""
-
         pass
 
     def show_training_info(self) -> InfoMessage:
-
         """Вернуть информационное сообщение о выполненной тренировке."""
-
         return(InfoMessage(
             self.__class__.__name__,
             self.duration,
@@ -74,7 +63,6 @@ class Training:
 
 
 class Running(Training):
-
     """Тренировка: бег."""
 
     coeff_calorie_1 = 18
@@ -97,7 +85,6 @@ class Running(Training):
 
 
 class SportsWalking(Training):
-
     """Тренировка: спортивная ходьба."""
 
     coeff_calorie_3: float = 0.035
@@ -119,7 +106,6 @@ class SportsWalking(Training):
 
 
 class Swimming(Training):
-
     """Тренировка: плавание."""
 
     LEN_STEP: float = 1.38
@@ -146,9 +132,7 @@ class Swimming(Training):
 
 
 def read_package(workout_type: str, data: list) -> Training:
-
     """Прочитать данные полученные от датчиков."""
-
     type_workouts = {'SWM': Swimming, 'RUN': Running, 'WLK': SportsWalking}
     if workout_type not in type_workouts:
         raise ValueError('Не известная тренировка')
