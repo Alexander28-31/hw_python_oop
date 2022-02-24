@@ -64,8 +64,8 @@ class Training:
 class Running(Training):
     """Тренировка: бег."""
 
-    COEFF_CALORIES_1 = 18
-    COEFF_CALORIES_2 = 20
+    COEFF_CALORIES_1: int = 18
+    COEFF_CALORIES_2: int = 20
 
     def get_spent_calories(self):
         return(((self.COEFF_CALORIES_1 * self.get_mean_speed()
